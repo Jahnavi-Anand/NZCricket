@@ -1,0 +1,320 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Colors derived directly from the image and your specific instructions */
+    --body-bg-color: #F0F2F5; /* Main background color for fallback */
+    --card-bg: rgba(255, 255, 255, 0.9); /* Card background for internal elements (e.g., inputs) */
+    --border-light: #E0E6ED; /* Light border color for header separator */
+
+    /* YOUR SPECIFIED PRIMARY COLORS */
+    --primary-main-dark: #181434; /* For main dark text, link text */
+    --primary-grey-alpha: rgba(24, 20, 52, 0.58); /* For subtitles, secondary text, input placeholders, icons */
+    --primary-button-base: #384454; /* Base color for the button and header gradient */
+
+    /* Derived colors based on your primaries */
+    --header-gradient-start: rgba(252, 253, 254, 0.8); /* FCFDFE with 80% opacity */
+    --header-gradient-end: rgba(248, 249, 250, 0.8);   /* F8F9FA with 80% opacity */
+
+    --button-hover-light: #4D5C6F; /* Lighter shade of #384454 for button hover */
+
+    /* Text Colors */
+    --text-main-heading: var(--primary-main-dark);
+    --text-subtitle: var(--primary-grey-alpha);
+    --text-placeholder: var(--primary-grey-alpha);
+    --icon-color: var(--primary-grey-alpha);
+
+    /* Button specific colors */
+    --button-text-color: #FFFFFF; /* White text on dark button */
+
+    /* Link specific colors */
+    --link-color: var(--primary-main-dark);
+    --link-hover-color: #2C2652; /* Slightly darker #181434 for link hover */
+
+    /* Shadow values from the image */
+    --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    --input-focus-shadow: 0 0 0 1px rgba(24, 20, 52, 0.1);
+
+    /* Radius values from the image */
+    --radius-button: 5px;
+    --radius-input: 4px;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--body-bg-color); /* Fallback color */
+    background-image: url('/images/bg.jpg'); /* Assuming bg.png is in public/images/ */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-size: 15px;
+    color: var(--text-main-heading);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.auth-wrapper {
+    width: 100%;
+    max-width: 420px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+
+    background-color: rgba(255, 255, 255, 0.8); /* Wrapper background is translucent */
+    border-radius: var(--radius-card); /* This variable seems undefined, ensure it's defined or set directly */
+    box-shadow: var(--card-shadow);
+}
+
+.auth-card {
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+/* Adjustments for vertical spacing */
+.auth-header {
+    background: linear-gradient(to bottom, var(--header-gradient-start), var(--header-gradient-end));
+    padding: 20px 30px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.auth-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.auth-main-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: var(--text-main-heading);
+}
+
+.auth-subtitle {
+    font-size: 14px;
+    color: var(--text-subtitle);
+    margin: 0;
+}
+
+.auth-form-content {
+    padding: 20px 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-field {
+    margin-bottom: 15px;
+    text-align: left;
+}
+.auth-form-content .form-field:last-of-type {
+    margin-bottom: 10px;
+}
+
+.form-field label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-main-heading);
+    margin-bottom: 5px;
+}
+
+.input-icon-container {
+    position: relative;
+    height: 44px;
+}
+
+.input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--icon-color);
+    width: 18px;
+    height: 18px;
+}
+
+.form-field input {
+    width: 100%;
+    height: 100%;
+    padding: 12px 12px 12px 40px;
+    border: none;
+    border-radius: var(--radius-input);
+    font-size: 15px;
+    color: var(--text-main-heading);
+    background-color: var(--card-bg); /* Input background gets translucency from --card-bg */
+    transition: box-shadow 0.2s ease;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 0 1px var(--border-light);
+}
+
+.form-field input::placeholder {
+    color: var(--text-placeholder);
+    opacity: 1;
+}
+
+.form-field input:focus {
+    outline: none;
+    box-shadow: var(--input-focus-shadow);
+}
+
+.auth-button {
+    width: 100%;
+    height: 44px;
+    padding: 12px 16px;
+    background-color: var(--primary-button-base);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: var(--radius-button);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Current margin-top below the last form field */
+}
+
+.auth-button:hover {
+    background-color: var(--button-hover-light);
+}
+
+.auth-footer {
+    /* **FIXED: Reduced top padding to decrease distance from button** */
+    padding: 10px 30px 20px; /* Reduced top padding from 15px to 10px */
+    text-align: center;
+    font-size: 14px;
+    color: var(--primary-grey-alpha);
+}
+
+.auth-footer a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.auth-footer a:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
+}
+
+/* --- Responsive Adjustments for Small Screens (Mobile Phones) --- */
+@media (max-width: 600px) {
+    body {
+        min-height: auto;
+        padding: 0;
+        align-items: flex-start;
+        overflow-y: auto;
+        background-size: auto 100%;
+        background-position: top center;
+    }
+
+    .auth-wrapper {
+        padding: 0;
+        max-width: 100%;
+        margin: 0;
+        min-height: 100vh;
+        justify-content: flex-start;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .auth-card {
+        border-radius: 0;
+        box-shadow: none;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .auth-header,
+    .auth-form-content,
+    .auth-footer {
+        padding: 15px 20px;
+    }
+
+    .auth-logo {
+        margin-bottom: 5px;
+    }
+
+    .auth-main-title {
+        font-size: 20px;
+        margin-bottom: 3px;
+    }
+
+    .auth-subtitle {
+        font-size: 12px;
+    }
+
+    .form-field {
+        margin-bottom: 10px;
+    }
+    .auth-form-content .form-field:last-of-type {
+        margin-bottom: 5px;
+    }
+
+    .form-field label {
+        font-size: 12px;
+        margin-bottom: 3px;
+    }
+
+    .input-icon-container {
+        height: 38px;
+    }
+
+    .form-field input {
+        font-size: 13px;
+        padding: 8px 8px 8px 34px;
+    }
+
+    .input-icon {
+        left: 8px;
+        width: 15px;
+        height: 15px;
+    }
+
+    .auth-button {
+        height: 38px;
+        font-size: 14px;
+        padding: 8px 12px;
+        margin-top: 5px;
+    }
+
+    .auth-footer {
+        padding: 8px 20px 15px; /* **FIXED: Further reduced top padding on mobile** */
+        font-size: 12px;
+    }
+}
+
+/* For extremely small screens */
+@media (max-width: 380px) {
+    .auth-header,
+    .auth-form-content,
+    .auth-footer {
+        padding: 10px 15px;
+    }
+}
