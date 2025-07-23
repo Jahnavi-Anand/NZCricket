@@ -1,109 +1,77 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors'); // Keep if you still need CORS for external API calls, otherwise remove
-const path = require('path'); // For path manipulation
+const cors = require('cors');
+const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Middleware
-app.use(cors()); // Consider if truly necessary for a combined app
+// --- Middleware ---
+app.use(cors()); // Optional: remove if not needed
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true })); // For parsing form data
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// Configure EJS as the view engine
+// --- Set view engine ---
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views')); // Set the views directory
+app.set('views', path.join(__dirname, 'views'));
 
-// Serve static files (CSS, JS, images for the frontend)
+// --- Serve static files ---
 app.use(express.static(path.join(__dirname, 'public')));
 
-// --- Frontend Routes (EJS Pages) ---
+// --- Frontend Routes ---
 
-// --- Authentication Route ---
 app.get('/auth', (req, res) => {
-    res.render('auth'); // Renders the auth.ejs template
-  });
-  
-  // --- API Routes for Authentication (as discussed before) ---
-  app.post('/api/auth/login', (req, res) => {
-      // In a real app:
-      // 1. Validate email/password
-      // 2. Query database for user
-      // 3. Compare hashed password
-      // 4. If valid, create a session or JWT
-      // 5. Respond with success/failure
-      const { email, password } = req.body;
-      if (email === 'test@example.com' && password === 'password') {
-          res.json({ message: 'Login successful' });
-      } else {
-          res.status(401).json({ message: 'Invalid credentials' });
-      }
-  });
-  
-  app.post('/api/auth/signup', (req, res) => {
-      // In a real app:
-      // 1. Validate input (fullName, email, password)
-      // 2. Hash password
-      // 3. Save new user to database
-      // 4. Respond with success/failure
-      const { fullName, email, password } = req.body;
-      console.log(`Attempting to sign up: ${fullName}, ${email}, ${password}`);
-      if (email && password && fullName) {
-          res.status(201).json({ message: 'Account created successfully! Please sign in.' });
-      } else {
-          res.status(400).json({ message: 'Missing required fields.' });
-      }
-  });
+  res.render('auth');
+});
 
-// --- Landing Page Route (Quick Access Page) ---
 app.get('/landing', (req, res) => {
-    res.render('landing', {
-        totalParticipantsToday: 156, //
-        sessionsToday: 12,           //
-        totalSessions: 156,          //
-        participationGrowth: '+8.2%' //
-    });
+  res.render('landing', {
+    totalParticipantsToday: 156,
+    sessionsToday: 12,
+    totalSessions: 156,
+    participationGrowth: '+8.2%'
+  });
 });
 
-// Session Data Entry Form
-app.get('/session-data-entry', (req, res) => {
-  res.render('session-data-entry');
-});
-
-// Analytics Dashboard
 app.get('/analytics', (req, res) => {
-    res.render('analytics');
+  res.render('analytics');
 });
 
-// --- Backend API Routes (for form submissions, data fetching etc.) ---
-// Example: User authentication (login/signup submission)
+app.get('/form', (req, res) => {
+  res.render('form'); 
+});
+
+// --- API Routes ---
+
 app.post('/api/auth/login', (req, res) => {
-    // Handle login logic, validate credentials, send JWT or session
+  const { email, password } = req.body;
+  if (email === 'test@example.com' && password === 'password') {
     res.json({ message: 'Login successful' });
+  } else {
+    res.status(401).json({ message: 'Invalid credentials' });
+  }
 });
 
 app.post('/api/auth/signup', (req, res) => {
-    // Handle signup logic, save user to DB
-    res.json({ message: 'Signup successful' });
+  const { fullName, email, password } = req.body;
+  if (email && password && fullName) {
+    res.status(201).json({ message: 'Account created successfully! Please sign in.' });
+  } else {
+    res.status(400).json({ message: 'Missing required fields.' });
+  }
 });
 
-// Example: Session data submission
 app.post('/api/sessions', (req, res) => {
-    // Save session data to database
-    console.log('Received session data:', req.body);
-    res.json({ message: 'Session data recorded successfully' });
+  console.log('Received session data:', req.body);
+  res.json({ message: 'Session data recorded successfully' });
 });
 
-// Example: Fetching analytics data for dashboard
 app.get('/api/analytics-data', (req, res) => {
-    // Fetch data from database and return as JSON
-    res.json({
-        participationTrends: [/* data */],
-        regionalPerformance: [/* data */],
-        recentSessions: [/* data */]
-    });
+  res.json({
+    participationTrends: [],
+    regionalPerformance: [],
+    recentSessions: []
+  });
 });
-
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

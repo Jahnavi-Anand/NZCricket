@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Session Entry</title>
+  <link rel="stylesheet" href="/css/form.css" />
+  <link rel="stylesheet" href="/css/footer.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Brando+Sans:wght@700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50 font-sans">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="/dashboard" class="back-btn">&#8592; Back</a>
+      <img src="/images/logo2.jpg" alt="Logo" class="logo">
+      <h1 class="nav-title">Session Entry Data</h1>
+    </div>
+    <span class="location-tag">Tag Location</span>
+  </nav>
+
+  <main class="form-container">
+    <h2>Cricket Session Information</h2>
+    <p>Complete the form below to record your cricket session data</p>
+
+    <form id="sessionForm">
+
+      <!-- Activator Info -->
+      <section>
+        <h3>Activator Information</h3>
+        <input type="text" name="activatorName" placeholder="Activator Name *" required>
+        <select name="association" required>
+          <option value="">Select your association *</option>
+        </select>
+      </section>
+
+      <!-- School & Date Details -->
+      <section>
+        <h3>School & Session Details</h3>
+        <input type="text" name="school" placeholder="School *" required>
+        <input type="text" name="zipcode" placeholder="School Zipcode *" required>
+        <input type="date" name="date" required>
+        <input type="time" name="time" required>
+        <select name="period">
+          <option value="">Select period</option>
+        </select>
+      </section>
+
+      <!-- Participants -->
+      <section>
+        <h3>Participants</h3>
+        <label>Year Groups *</label>
+        <div class="year-groups">
+          <label><input type="checkbox" name="years" value="Year 1"> Year 1</label>
+          <label><input type="checkbox" name="years" value="Year 2"> Year 2</label>
+          <label><input type="checkbox" name="years" value="Year 3"> Year 3</label>
+          <label><input type="checkbox" name="years" value="Year 4"> Year 4</label>
+          <label><input type="checkbox" name="years" value="Year 5"> Year 5</label>
+          <label><input type="checkbox" name="years" value="Year 6"> Year 6</label>
+          <label><input type="checkbox" name="years" value="Year 7"> Year 7</label>
+          <label><input type="checkbox" name="years" value="Year 8"> Year 8</label>
+        </div>
+        <input type="number" name="maleStudents" placeholder="Male Students *" required>
+        <input type="number" name="femaleStudents" placeholder="Female Students *" required>
+      </section>
+
+      <!-- Configuration -->
+      <section>
+        <h3>Session Configuration</h3>
+        <select name="duration" required>
+          <option value="">Select duration *</option>
+        </select>
+        <select name="sessionType" required>
+          <option value="">Select session type *</option>
+        </select>
+        <select name="engagement" required>
+          <option value="">Teacher Engagement Level *</option>
+          <option>High</option>
+          <option>Moderate</option>
+          <option>None</option>
+        </select>
+      </section>
+
+      <!-- Enjoyment -->
+      <section>
+        <h3>Student Enjoyment Level *</h3>
+        <select name="enjoyment" required>
+          <option>Very Low - 1/5</option>
+          <option>Low - 2/5</option>
+          <option>Moderate - 3/5</option>
+          <option>High - 4/5</option>
+          <option>Very High - 5/5</option>
+        </select>
+      </section>
+
+      <!-- Notes -->
+      <section>
+        <h3>Additional Notes</h3>
+        <textarea name="notes" placeholder="Optional notes, challenges, highlights..."></textarea>
+      </section>
+
+      <div class="form-actions">
+        <button type="reset">Clear Form</button>
+        <button type="submit">Submit Session Data</button>
+      </div>
+
+    </form>
+  </main>
+
+  <script src="/js/form.js"></script>
+  <%- include('footer') %>
+</body>
+</html>
