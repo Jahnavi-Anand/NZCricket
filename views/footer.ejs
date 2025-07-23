@@ -1,0 +1,34 @@
+<footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <% const footerSections = [
+          { title: "Schedules", links: ["BLACKCAPS", "WHITE FERNS", "Domestic Competitions", "National Tournaments", "Community Tournaments", "All Results"] },
+          { title: "International", links: ["News", "BLACKCAPS", "WHITE FERNS", "Matches and Tickets"] },
+          { title: "Domestic", links: ["News", "Matches and Ticketing", "Domestic Competitions", "National Tournaments", "Competition Centres", "Domestic Cricket Teams", "Major Associations"] },
+          { title: "Community", links: ["Contact", "Social media", "NZC Board", "High Performance Centre", "Commercial Partners", "New Zealand Cricket Museum", "Publications", "Match Officials", "Accreditation", "Privacy Policy", "The NZC App", "NZC Governance", "Careers", "Integrity", "New Zealand Cricket Hall of Fame"] },
+          { title: "Corporate", links: ["Contact", "Social media", "NZC Board", "High Performance Centre", "Commercial Partners", "New Zealand Cricket Museum", "Publications", "Match Officials", "Accreditation", "Privacy Policy", "The NZC App", "NZC Governance", "Careers", "Integrity", "New Zealand Cricket Hall of Fame"] },
+          { title: "Archive", links: ["Seasons", "Players", "Grounds", "Records"] }
+        ]; %>
+  
+        <% footerSections.forEach(section => { %>
+          <div class="footer-section">
+            <h3><%= section.title %></h3>
+            <ul>
+              <% section.links.forEach(link => { %>
+                <li><a href="#"><%= link %></a></li>
+              <% }); %>
+            </ul>
+          </div>
+        <% }); %>
+      </div>
+  
+      <div class="footer-bottom">
+        <span class="footer-news">News</span>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
