@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors'); // Keep if you still need CORS for external API calls, otherwise remove
@@ -56,15 +55,14 @@ app.get('/auth', (req, res) => {
       }
   });
 
-// Landing Page (Activator Welcome Dashboard)
-app.get('/', (req, res) => {
-  // You'd typically fetch dynamic data here and pass it to the EJS template
-  res.render('landing', {
-      totalParticipants: 156, // Example static data
-      sessionsToday: 12,
-      totalSessions: 156,
-      participationGrowth: '+8.2%'
-  });
+// --- Landing Page Route (Quick Access Page) ---
+app.get('/landing', (req, res) => {
+    res.render('landing', {
+        totalParticipantsToday: 156, //
+        sessionsToday: 12,           //
+        totalSessions: 156,          //
+        participationGrowth: '+8.2%' //
+    });
 });
 
 // Session Data Entry Form

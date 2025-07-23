@@ -1,0 +1,420 @@
+@font-face {
+    font-family: 'Brando Sans';
+    src: url('/fonts/BrandoSans-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  body {
+    font-family: 'Brando Sans', 'Outfit', sans-serif;
+    background: linear-gradient(to bottom right, #f5f7fa, #e4ecf2);
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+  
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #223144, #25354d);
+    padding: 1.5rem 2.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }  
+  
+  .navbar-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .logo-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 10%;
+  }
+  
+  .logo-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: white;
+  }
+  
+  .logo-subtitle {
+    font-size: 1rem;
+    color: #c0c8d4;
+    margin-top: 0.25rem;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  /* Button styling */
+  .btn-dark, .btn-icon {
+    background-color: #2f3e52;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-dark:hover, .btn-icon:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* translucent white overlay */
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-icon {
+    padding: 0.8rem;
+    justify-content: center;
+  }
+  
+  .welcome-banner {
+    background: #f5f9fc;
+    padding: 3rem 4rem;
+    text-align: center;
+    border: 1px solid #dde6f0;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    margin: 3rem 5rem;
+  }
+  
+  .welcome-banner h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin: 1.2rem 0;
+  }
+  
+  .welcome-banner .accent {
+    background: linear-gradient(45deg, #3b4c6e, #5a6e95);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+    
+  .welcome-banner .tag {
+    background: #e0f2f1;
+    color: #00695c;
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    border-radius: 999px;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+
+  .metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.card {
+    background-color: white;
+    padding: 2rem 1.5rem;
+    border-radius: 5px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e2e8f0;
+    color: #333;
+    position: relative;
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; 
+  }
+  
+  .card:hover {
+    transform: scale(1.03);
+  }
+  
+  .card-icon {
+    background-color: #f1f5f9;
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px; 
+  }
+  
+  
+  .card-icon.green { color: #2e7d32; }
+  .card-icon.blue { color: #1976d2; }
+  .card-icon.orange { color: #fb8c00; }
+  .card-icon.teal { color: #0097a7; }
+  
+  .card-title {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #7b8794; 
+    margin-bottom: 0;
+    margin-top: 1rem; 
+    margin-bottom: 0;
+  }
+  
+  .card-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #4b5563; 
+  }
+  
+  .badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 0.6rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    color: white;
+    font-weight: 600;
+    transition: transform 0.2s ease, background 0.3s ease;
+  }
+  
+  .badge:hover {
+    filter: brightness(1.1);
+    transform: scale(1.05);
+  }
+  
+  .badge.green { background-color: #2e7d32; }
+  .badge.blue { background-color: #1976d2; }
+  .badge.orange { background-color: #e65100; }
+  .badge.teal { background-color: #0097a7; }
+  
+  .quick-title {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #181434;
+    margin-bottom: 1.5rem;
+  }
+  
+  .quick-actions {
+    padding: 0;
+    margin: 2rem auto;
+    max-width: 1000px;
+  }
+  
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  .action-card {
+    flex: 0.3 0.3 160px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    min-height: 140px;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    word-wrap: break-word;
+  }
+  
+  .action-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  }
+  
+  .icon-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .icon-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.25rem;
+  }
+  
+  .icon-circle.green { background-color: #00796b; }
+  .icon-circle.blue { background-color: #1976d2; }
+  
+  .action-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #181434;
+    margin: 0;
+  }
+  
+  .action-card p {
+    font-size: 1rem;
+    color: rgba(24, 20, 52, 0.58);
+    margin: 0.5rem 0 0.25rem; 
+    line-height: 1.4;
+  }
+  
+  .action-button {
+    background-color: #384454;
+    color: #ffffff;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    width: calc(100% - 2rem);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0.5rem;
+    left: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .action-button:hover {
+    background-color: #4D5C6F;
+  }
+  
+
+  @media (max-width: 600px) {
+    /* Navbar */
+    .navbar {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1rem;
+    }
+  
+    .navbar-left {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  
+    .navbar-right {
+      flex-direction: row;
+      gap: 0.5rem;
+      margin-left: auto;
+    }
+  
+    .logo-img {
+      width: 36px;
+      height: 36px;
+    }
+  
+    .logo-title {
+      font-size: 1.1rem;
+    }
+  
+    .logo-subtitle {
+      font-size: 0.75rem;
+    }
+  
+    /* Welcome Banner */
+    .welcome-banner {
+      padding: 1rem;
+      margin: 0.5rem 1rem 0;
+      text-align: center;
+    }
+  
+    .welcome-banner h1 {
+      font-size: 1.2rem;
+      margin: 0;
+      white-space: normal;
+    }
+  
+    .welcome-banner h2 {
+      font-size: 0.95rem;
+      margin-top: 0.2rem;
+    }
+  
+    .welcome-banner p {
+      display: none;
+    }
+  
+    .welcome-banner .tag {
+      font-size: 0.85rem;
+      padding: 0.3rem 0.8rem;
+    }
+  
+    /* Metrics and Actions: 2 cards per row */
+    .metrics,
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      padding: 1rem;
+    }
+  
+    .action-card {
+      width: 100%;
+      min-height: 150px;
+      padding: 1rem;
+      box-sizing: border-box;
+    }
+
+    .metric-card {
+        padding: 0.5rem;
+        min-height: 100px;
+        font-size: 0.7rem;
+        box-sizing: border-box;
+      }
+      .metric-card h3 {
+        font-size: 0.8rem;
+        margin-bottom: 0.25rem;
+      }
+      .metric-card p {
+        font-size: 0.65rem;
+      }
+      
+      
+  
+    .icon-circle {
+      width: 30px;
+      height: 30px;
+      font-size: 0.8rem;
+    }
+  
+    .action-card h3,
+    .metric-card h3 {
+      font-size: 0.9rem;
+    }
+  
+    .action-card p,
+    .metric-card p {
+      font-size: 0.75rem;
+    }
+  
+    .action-button {
+      font-size: 0.75rem;
+      padding: 0.5rem 0.6rem;
+      width: calc(100% - 2rem);
+      bottom: 0.6rem;
+    }
+  
+    /* Quick Actions */
+    .quick-actions {
+      margin: 1rem auto;
+    }
+  
+    .quick-actions h2 {
+      font-size: 1rem;
+      text-align: center;
+      margin-bottom: 0.8rem;
+    }
+  }
+  
