@@ -7,6 +7,9 @@ A responsive web-based analytics and data entry platform to streamline the track
 Access the hosted version here:
 🔗 [NZC Analytics Dashboard](https://preview--new-zealand-cricket.lovable.app/analytics)
 
+Documentation here:
+🔗 [NZC Final Report](https://www.dropbox.com/scl/fi/zmbnsmkmy95l0g55ou9r8/Final-Report.pdf?rlkey=tlwwluqnxja4bergbamrppbyf&st=w2jp2nuu&dl=0)
+
 ---
 
 ## 📌 Project Overview
