@@ -60,7 +60,8 @@ NZCricket/
 
 * **Frontend**: HTML5, CSS3, Tailwind CSS, JavaScript
 * **Templating**: EJS
-* **Backend**: Node.js, Express.js *(to be implemented)*
+* **Backend**: Node.js, Express.js
+* **Database**: Firebase
 * **CI/CD**: Jenkins (with GitHub integration)
 * **Code Quality**: SonarQube
 * **Deployment**: Lovable.app Preview Hosting
@@ -98,6 +99,43 @@ To run SonarQube analysis:
    ```
 
 ---
+### 🔧 Firebase Configuration
+
+To run the project locally, you’ll need to configure Firebase by creating an `environment.ts` file.
+
+#### 1. Create Firebase Environment File
+
+Inside your `src/environments/` directory, create a file named `environment.ts` and add the following content:
+
+```ts
+export const environment = {
+  production: false,
+  firebaseConfig: {
+    apiKey: "XXXXXX",
+    authDomain: "your-project.firebaseapp.com",
+    projectId: "your-project-id",
+    storageBucket: "your-project.appspot.com",
+    messagingSenderId: "XXXXXX",
+    appId: "XXXXXX"
+  }
+};
+```
+
+> 🔒 Replace the placeholder values with your actual Firebase project credentials.
+
+---
+
+### ▶️ Running the Project Locally
+
+To run the app in development mode:
+
+```bash
+ng serve
+```
+
+Then open your browser and visit:
+[http://localhost:4200](http://localhost:4200)
+
 
 ## 👩‍💻 Author
 
